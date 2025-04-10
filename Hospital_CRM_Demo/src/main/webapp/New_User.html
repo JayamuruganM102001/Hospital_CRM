@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image" href="./hos-removebg-preview.png">
+<title>Hospital Management</title>
+<style>
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	font-family: Arial, sans-serif;
+}
+
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	background-color: #f0f2f5;
+}
+
+.container {
+	background: #fff;
+	padding: 30px;
+	border-radius: 10px;
+	box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+	width: 500px; /* Increased width for a better two-column layout */
+}
+
+h2 {
+	text-align: center;
+	margin-bottom: 20px;
+	color: #2ba94a;
+    font-size: 24px;
+}
+
+.input-row {
+	display: flex;
+	gap: 15px; /* Space between input groups */
+	margin-bottom: 15px;
+}
+
+.input-group {
+	flex: 1; /* Allows inputs to evenly share available space */
+}
+
+.input-group label {
+	display: block;
+	margin-bottom: 5px;
+	font-weight: bold;
+	color: #131212;
+}
+
+.input-group input, .input-group select {
+	width: 100%;
+	padding: 10px;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	outline: none;
+	transition: border-color 0.3s ease;
+}
+
+.input-group input:focus, .input-group select:focus {
+	border-color: #2ba94a;
+}
+
+.btn {
+	width: 100%;
+	padding: 12px;
+	border: none;
+	border-radius: 5px;
+	
+    background-color: #2ba94a;
+	color: white;
+	font-size: 16px;
+	font-weight: bold;
+	cursor: pointer;
+	transition: background 0.3s, transform 0.3s;
+}
+
+.btn:hover {
+	background-color: #228b3d;
+	/* transform: translateY(-3px); */
+	/* box-shadow: 0 5px 15px rgba(10, 114, 18, 0.3); */
+}
+img{
+    width: 50px;
+    height: 50px;
+}
+
+.log {
+    margin-top: 10px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.log a {
+    color: #2ba94a;
+    text-decoration: none;
+}
+
+.log a:hover {
+    text-decoration: underline;
+}
+</style>
+</head>
+
+<body>
+	<div class="container">
+		<h2><img src="./hos-removebg-preview.png" alt=""><span >&nbsp;&nbsp;&nbsp;Registration Form</span></h2>
+		<form action="AddUserDetails" onsubmit="Validate()" method="post">
+			<div class="input-row">
+				<div class="input-group">
+					<label for="fullname">Full Name</label> <input type="text"
+						id="fullname" name="fullname" required>
+				</div>
+				<div class="input-group">
+					<label for="email">Email</label> <input type="email" id="email"
+						name="email" required>
+				</div>
+			</div>
+			<div class="input-row">
+				<div class="input-group">
+					<label for="fullname">User Id</label> <input type="text" id="uid"
+						name="uid" required>
+				</div>
+				<div class="input-group">
+					<label for="email">Password</label> <input type="password" id="pwd"
+						name="pwd" required>
+				</div>
+			</div>
+			<div class="input-row">
+				<div class="input-group">
+					<label for="phone">Phone Number</label> <input type="tel"
+						id="phone" name="phone" required>
+				</div>
+				<div class="input-group">
+					<label for="dob">Date of Birth</label> <input type="date" id="dob"
+						name="dob" required>
+				</div>
+			</div>
+			<div class="input-row">
+				<div class="input-group">
+					<label for="gender">Gender</label> <select id="gender"
+						name="gender" required>
+						<option value="">Select Gender</option>
+						<option value="male">Male</option>
+						<option value="female">Female</option>
+						<option value="other">Other</option>
+					</select>
+				</div>
+				<div class="input-group">
+					<label for="zipcode">Zip Code</label> <input type="text"
+						id="zipcode" name="zipcode" required>
+				</div>
+			</div>
+			<div class="input-row">
+				<div class="input-group">
+					<label for="city">Address(city)</label> <select id="city"
+						name="city" required>
+						<option value="">Select city</option>
+						<option value="Vellore">Vellore</option>
+						<option value="Gudiyatham">Gudiyatham</option>
+						<option value="Arani">Arani</option>
+						<option value="Ranipetai">Ranipetai</option>
+						<option value="others">others</option>
+					</select>
+				</div>
+				<div class="input-group">
+					<label for="dept">Department</label> 
+					<select id="dept" name="dept" required>
+						<option value="">Select role</option>
+						<option value="Full-Stack">Full-Stack</option>
+						<option value="Front-End">Front-End</option>
+						<option value="Back-End">Back-End</option>
+						<option value="UI/UX">UI/UX</option>
+					</select>
+				</div>
+			</div>
+			<button type="submit" class="btn">Register</button>
+		</form>
+        <p class="log">Already have an account   <a href="./index.html">Login</a></p>
+	</div>
+</body>
+
+
+</html>

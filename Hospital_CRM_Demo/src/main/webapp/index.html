@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="icon" href="./hos-removebg-preview.png" type="image/png">
+  <title>Hospital Management</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    /* Animated Background */
+    body::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('image/hospital2.jpg') no-repeat center center/cover;
+      z-index: -2;
+      filter: brightness(0.9);
+    }
+
+    .bubbles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      overflow: hidden;
+    }
+
+    .bubble {
+      position: absolute;
+      bottom: -150px;
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      animation: floatUp 10s infinite ease-in;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.6;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-110vh) scale(1.2);
+        opacity: 0;
+      }
+    }
+
+    .bubble:nth-child(1) {
+      left: 10%;
+      animation-delay: 0s;
+      width: 30px;
+      height: 30px;
+    }
+
+    .bubble:nth-child(2) {
+      left: 20%;
+      animation-delay: 2s;
+      width: 20px;
+      height: 20px;
+    }
+
+    .bubble:nth-child(3) {
+      left: 35%;
+      animation-delay: 4s;
+    }
+
+    .bubble:nth-child(4) {
+      left: 50%;
+      animation-delay: 1s;
+      width: 25px;
+      height: 25px;
+    }
+
+    .bubble:nth-child(5) {
+      left: 65%;
+      animation-delay: 3s;
+    }
+
+    .bubble:nth-child(6) {
+      left: 80%;
+      animation-delay: 5s;
+    }
+
+    .bubble:nth-child(7) {
+      left: 90%;
+      animation-delay: 6s;
+      width: 35px;
+      height: 35px;
+    }
+
+    .login-container {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+      width: 360px;
+      text-align: center;
+      animation: fadeIn 1s ease;
+      position: relative;
+      z-index: 2;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes floatLogo {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+
+    .login-container img {
+      width: 60px;
+      height: 60px;
+      animation: floatLogo 3s ease-in-out infinite;
+    }
+
+    h2 {
+      color: #2ba94a;
+      font-size: 24px;
+      margin-top: 10px;
+    }
+
+    p {
+      margin-bottom: 20px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+    }
+
+    label {
+      font-size: 14px;
+      font-weight: bold;
+      margin: 10px 0 5px;
+    }
+
+    input {
+      padding: 10px;
+      width: 100%;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 14px;
+      outline: none;
+      transition: border 0.3s ease;
+    }
+
+    input:focus {
+      border-color: #2ba94a;
+    }
+
+    button {
+      background-color: #2ba94a;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      margin-top: 15px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #218b3d;
+      transform: scale(1.05);
+    }
+
+    .forgot-label {
+      font-size: 13px;
+      margin-top: 10px;
+      display: block;
+      text-align: right;
+      color: #2ba94a;
+      cursor: pointer;
+    }
+
+    .forgot-label:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Animated Bubbles Background -->
+  <div class="bubbles">
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+  </div>
+
+  <!-- Login Box -->
+  <div class="login-container">
+    <img src="image/logo.png" alt="Logo">
+    <h2>Sign In</h2>
+    <p>Enter your login credentials</p>
+
+    <form action="demo1" method="get">
+      <label for="uname">User Id</label>
+      <input type="text" id="uname" name="uname" required placeholder="Enter your UserId" />
+
+      <label for="pword">Password:</label>
+      <input type="password" id="pword" name="pword" required placeholder="Enter your Password" />
+
+      <button type="submit">Login</button>
+      <span class="forgot-label" onclick="frp()">Forgot password?</span>
+      
+    </form>
+  </div>
+
+  <script>
+    function frp() {
+      alert("Contact admin for password recovery.");
+    }
+
+    
+  </script>
+
+</body>
+</html>
